@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You - Delta Door Solutions</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('images/header.png');
+      background-size: cover;
+      background-position: center;
+    }
+    #thank-you-wrapper {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      width: 500px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      #thank-you-wrapper {
+        width: 90%;
+        padding: 15px;
+        border-radius: 15px;
+      }
+    }
+    h1, h2 {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="thank-you-wrapper">
+    <!-- Delta Door Solutions Logo -->
+    <h1>
+      <a href="index.html" id="logo">
+        <picture>
+          <!-- Mobile: Use mobile logo when screen width is 768px or less -->
+          <source media="(max-width: 768px)" srcset="images/Five boroughs Door Solutions.svg">
+          <!-- Default image for larger screens -->
+          <img src="images/Five boroughs Door Solutions.svg" alt="Logo">
+        </picture>
+      </a>
+    </h1>
+<style>
+  /* Default desktop styles */
+  #logo img {
+    height: 40px; /* Adjust desktop logo height */
+  }
+
+
+  @media only screen and (max-width: 768px) {
+    #logo img {
+      src="images/favicon_title1.svg"
+      height:15px; /* Adjust mobile logo height */
+    }
+  }
+</style>
+
+    <h1>Your request has been received</h1>
+    <h2>We will contact you shortly. Thank you for choosing  FBD Solutions.</h2>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

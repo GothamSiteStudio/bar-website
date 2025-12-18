@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Service Now</title>
+  <link rel="icon" href="images/favicon.png" type="image/jpg" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzKaIbYBT2fG6I15vpJ5g6mOnoZL1b1fs&libraries=places&language=en&callback=initAutocomplete"
+    async
+    defer
+    loading="lazy">
+  </script>
+  <style>
+    /* General body styles */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('images/header.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Form wrapper styling */
+    #form-wrapper {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      height: 690px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      #form-wrapper {
+        width: 90%;
+        padding: 15px;
+        border-radius: 15px;
+      }
+      h1, h2 {
+        font-size: 1.5em;
+      }
+    }
+
+    /* Heading styles */
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Logo styling */
+    #logo img {
+      height: 40px; /* Desktop logo height */
+    }
+    @media only screen and (max-width: 768px) {
+      #logo img {
+        height: 30px; /* Mobile logo height */
+      }
+    }
+
+    /* Dropdown styling */
+    .dropdown {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .dropdown-toggle {
+      width: 100%; /* Ensures the button fills the container */
+      text-align: center; /* Centers the text and content in the button */
+      display: flex; /* Uses flexbox for alignment */
+      justify-content: center; /* Centers content horizontally */
+      align-items: center; /* Centers content vertically */
+      font-weight: normal;
+    }
+    .dropdown-toggle .button-text {
+      font-weight: bold; /* Makes only the text bold */
+      margin-right: 5px;
+    }
+    .dropdown button {
+      width: 100%;
+      text-align: left;
+    }
+    .dropdown button:after {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .dropdown-menu {
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform-origin: top center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+    .dropdown-menu.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .dropdown-menu li a {
+      display: block;
+      padding: 15px;
+      font-weight: 500;
+      color: #333;
+      text-align: center;
+    }
+    .dropdown-menu li a:hover {
+      background-color: #007BFF;
+      color: #fff;
+    }
+    .dropdown-toggle::after {
+      transition: transform 0.3s ease;
+    }
+    .dropdown.show .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+    /* Centered dropdown container */
+    .centered-dropdown {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="form-wrapper">
+    <!-- Logo -->
+    <h1>
+      <a href="index.html" id="logo">
+        <picture>
+          <!-- Mobile: Use mobile logo when screen width is 768px or less -->
+          <source media="(max-width: 768px)" srcset="images/Five boroughs Door Solutions.svg">
+          <!-- Default image for larger screens -->
+          <img src="images/Five boroughs Door Solutions.svg" alt="Logo">
+        </picture>
+      </a>
+    </h1>
+
+    <h2>Get Your Free Quote</h2>
+
+    <form id="myForm">
+      <input type="hidden" name="NEW JOB" value="FROM  FBD Solutions 🔐: New Service Request">
+      <input type="hidden" name="TIME SUBMITTED" id="timestamp" value="">
+      <input type="hidden" name="service" id="service" value="">
+
+      <!-- Dropdown Service Selection -->
+      <div class="centered-dropdown">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="button-text">CHOOSE SERVICE 🔐</span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+               <li class="dropdown-submenu main-menu-item">
+              <a class="test" href="#">RESIDENTIAL<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="submenu-item"><a href="#">FRONT & ENTRY DOOR INSTALLATION</a></li>
+                <li class="submenu-item"><a href="#">INTERIOR & BEDROOM DOORS</a></li>
+                <li class="submenu-item"><a href="#">SLIDING & PATIO DOORS</a></li>
+                <li class="submenu-item"><a href="#">EMERGENCY DOOR REPLACEMENT</a></li>
+                <li class="submenu-item"><a href="#">CUSTOM FITTING & REPAIR</a></li>
+                <li class="submenu-item"><a href="#">OTHER</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown-submenu main-menu-item">
+              <a class="test" href="#">COMMERCIAL<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="submenu-item"><a href="#">STOREFRONT & GLASS DOOR INSTALLATION</a></li>
+                <li class="submenu-item"><a href="#">FIRE-RATED & STEEL DOORS</a></li>
+                <li class="submenu-item"><a href="#">EMERGENCY BOARD-UP & SAME-DAY REPLACEMENT</a></li>
+                <li class="submenu-item"><a href="#">PUSH BAR & EXIT HARDWARE INSTALLATION</a></li>
+                <li class="submenu-item"><a href="#">DOOR MAINTENANCE & REPAIR</a></li>
+                <li class="submenu-item"><a href="#">OTHER</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown-submenu main-menu-item">
+              <a class="test" href="#">ACCESS CONTROL<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="submenu-item"><a href="#">CARD READER & KEYPAD SYSTEMS</a></li>
+                <li class="submenu-item"><a href="#">BIOMETRIC & SMART ACCESS</a></li>
+                <li class="submenu-item"><a href="#">DOOR HARDWARE INTEGRATION</a></li>
+                <li class="submenu-item"><a href="#">FIRE SYSTEM & EGRESS COMPLIANCE</a></li>
+                <li class="submenu-item"><a href="#">MONITORING & MAINTENANCE</a></li>
+                <li class="submenu-item"><a href="#">OTHER</a></li>
+              </ul>
+            </li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phone Input -->
+      <div class="form-group">
+        <label for="phone">PHONE:</label>
+        <input type="tel" class="form-control" id="phone" name="phone"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Enter your phone number" required>
+      </div>
+
+      <!-- Zipcode Input -->
+      <div class="form-group">
+        <label for="zip">ZIPCODE:</label>
+        <input type="text" class="form-control" id="zip" name="zip" maxlength="5"
+          placeholder="Enter your zipcode" required>
+      </div>
+
+      <!-- Address Input -->
+      <div class="form-group">
+        <label for="address">ADDRESS (optional):</label>
+        <input type="text" class="form-control" id="address" name="address"
+          placeholder="Enter your address if needed">
+      </div>
+
+      <!-- Additional Info -->
+      <div class="form-group">
+        <label for="additional_info">ADDITIONAL INFO (optional):</label>
+        <textarea class="form-control" id="additional_info" name="additional_info" rows="4"
+          maxlength="280" placeholder="Enter additional info or notes..."></textarea>
+      </div>
+
+      <input type="hidden" name="REMEMBER" value="Please send K">
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Initially hide all dropdown menus
+      $('.dropdown-menu').hide();
+
+      // Toggle main dropdown on button click
+      $('.dropdown-toggle').click(function(e) {
+        e.stopPropagation();
+        $(this).next('.dropdown-menu').toggle();
+        $('.main-menu-item').show();
+        $('.dropdown-submenu .dropdown-menu').hide();
+      });
+
+      // Open submenu on main menu item click
+      $('.main-menu-item > a').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).parent().siblings().find('.dropdown-menu').hide();
+        $(this).parent().siblings().hide();
+        $(this).next('.dropdown-menu').show();
+      });
+
+      // Submenu item selection
+      $('.submenu-item > a').click(function(e) {
+        e.preventDefault();
+        var selectedText = $(this).text();
+        $(this).closest('.dropdown').find('.dropdown-toggle')
+          .html(selectedText + ' <span class="caret"></span>');
+        $('#service').val(selectedText);
+        $('.dropdown-menu').hide();
+        $('.main-menu-item').show();
+      });
+
+      // Close dropdown when clicking outside
+      $(document).on('click', function() {
+        $('.dropdown-menu').hide();
+        $('.main-menu-item').show();
+      });
+
+      // Prevent closing dropdown when clicking inside
+      $('.dropdown-menu').click(function(e) {
+        e.stopPropagation();
+      });
+
+      // Form submission
+      $('#myForm').on('submit', function(e) {
+        e.preventDefault();
+        updateDateTimeField();
+
+        const formData = $(this).serializeArray();
+        const message = formData
+          .map(field => `${translateFieldName(field.name)}: ${field.value}`)
+          .join('\n');
+
+        const telegramApiUrl = 'https://api.telegram.org/bot7683946734:AAEWuOmxwv86sl5iTH8iArcEjn8FeeVwiaM/sendMessage';
+        const chatId = '-5002409660';
+        $.ajax({
+          url: telegramApiUrl,
+          method: 'POST',
+          data: {
+            chat_id: chatId,
+            text: `${message}`
+          },
+          success: function() {
+            alert('Form submitted successfully!');
+            window.location.href = 'thank_you.html';
+          },
+          error: function(err) {
+            alert('Form submission failed.');
+            console.error('Error:', err);
+          }
+        });
+      });
+
+      // Update timestamp field
+      function updateDateTimeField() {
+        var now = new Date();
+        var day = now.getDate();
+        var month = now.getMonth() + 1;
+        var year = now.getFullYear();
+        var hour = now.getHours();
+        var minutes = now.getMinutes();
+        hour = hour % 12;
+        hour = hour ? hour : 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var dateString = `${hour}:${minutes} ${day}/${month}/${year}`;
+        $('#timestamp').val(dateString);
+      }
+
+      // Translate field names (customize as needed)
+      function translateFieldName(name) {
+        const translations = {
+          'NEW JOB': 'New Job',
+          'TIME SUBMITTED': 'Time Submitted',
+          'service': 'Service',
+          'phone': 'Phone',
+          'zip': 'Zipcode',
+          'address': 'Address',
+          'additional_info': 'Additional Info'
+        };
+        return translations[name] || name;
+      }
+    });
+
+    // Format phone input as xxx-xxx-xxxx
+    document.getElementById('phone').addEventListener('input', function(e) {
+      var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+      e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+
+    // Restrict zip input to numbers only
+    document.getElementById('zip').addEventListener('input', function(e) {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+
+    // Google Places Autocomplete for USA addresses
+    let autocomplete;
+    function initAutocomplete() {
+      autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('address'),
+        {
+          types: ['geocode'],
+          componentRestrictions: { country: 'US' }
+        }
+      );
+      autocomplete.setFields(['address_components']);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+                                            </article>
+
+                                            <!-- Interactive Section -->
+                                            <section>
+                                                <header class="major" data-aos="fade-up-right">
+                                                    <h2>Find Available Technician</h2>
+                                                    <p><b>Nearest technician to St. George, Staten Island</b></p>
+                                                </header>
+
+                                                <!-- Technician Availability Block -->
+                                                <div id="tech-availability-block">
+                                                    <!-- Check Availability Button -->
+                                                    <div id="check-button-container">
+                                                        <button onclick="checkTechnicianETA()"
+                                                                class="button large icon solid fa-search"
+                                                                id="check-eta-btn">
+                                                            Find Nearest Technician
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- ETA Notice -->
+                                                    <div id="tech-eta-container">
+                                                        <div class="tech-eta" data-aos="fade-right" data-aos-duration="1200" data-aos-offset="100">
+                                                            <!-- Loading Spinner & Progress Bar -->
+                                                            <div class="loading-spinner" id="eta-spinner" style="display: none;">
+                                                                <div style="margin-bottom: 10px;">Searching for nearest technician...</div>
+                                                                <div class="progress-container">
+                                                                    <div id="progress-bar"></div>
+                                                                </div>
+                                                                <div id="progress-text">0%</div>
+                                                            </div>
+                                                            <!-- Status Display -->
+                                                            <div class="tech-status" id="tech-status">
+                                                                <div class="tech-icon">
+                                                                    <i class="fas fa-truck"></i>
+                                                                </div>
+                                                                <span>
+                                                                    <strong>Checking availability...</strong>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Map Container -->
+                                                <div class="map-container">
+                                                    <iframe width="100%"
+                                                            height="100%"
+                                                            style="border:0;"
+                                                            loading="lazy"
+                                                            allowfullscreen
+                                                            referrerpolicy="no-referrer-when-downgrade"
+                                                            src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBzKaIbYBT2fG6I15vpJ5g6mOnoZL1b1fs&center=40.6447,-74.0776&zoom=14&maptype=roadmap">
+                                                    </iframe>
+                                                </div>
+                                                <div class="location-info">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    <span>St. George, Staten Island</span>
+                                                </div>
+                                            </section> 
